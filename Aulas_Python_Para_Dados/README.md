@@ -172,7 +172,7 @@ Permitem que o programa execute diferentes blocos de código dependendo de uma c
 * **`elif` (Se não, se):** Permite encadear múltiplas condições adicionais caso as anteriores sejam falsas.
 * **`else` (Se não):** O bloco executado por padrão caso todas as condições anteriores (`if` e `elif`) sejam falsas.
 
-**Exemplo prático:**
+**Exemplo prático: Estruturas condicionais**
 ```python
 nota = 8.5
 
@@ -195,7 +195,7 @@ Conceito: Utilizado para iterar (percorrer) sobre uma sequência de dados, como 
 Uso: Executa uma ação específica para cada item dentro dessa sequência. É ideal quando sabemos a quantidade de vezes que o loop deve rodar ou o tamanho da coleção.
 frutas = ["maçã", "banana", "uva"]
 
-**Exemplo prático com lista: Iteração sobre a lista, passando por cada item ***
+**Exemplo prático com lista: Iteração sobre a lista, passando por cada item**
 ```python
 for fruta in frutas:
     print(f"Eu gosto de {fruta}")
@@ -207,7 +207,7 @@ Conceito: Repete a execução de um bloco de código continuamente enquanto uma 
 
 Uso: Muito útil para automatizar processos onde não sabemos exatamente quantas iterações serão necessárias, dependendo de um evento de parada.
 
-**Exemplo prático com loop while ***
+**Exemplo prático com loop while**
 ``` python
 contador = 0
 
