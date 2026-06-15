@@ -130,7 +130,7 @@ import meu_pacote.meu_modulo
 from meu_pacote.meu_modulo import minha_funcao
 ```
 
-## 📝 Aulas 5 e 6: Tipos, Estruturas de Dados e Fluxos de Controle
+## 📝 Aulas 5: Tipos, Estruturas de Dados e Fluxos de Controle (Parte 1)
 
 Nestas aulas, exploramos os tipos de dados fundamentais do Python, além de como organizar e manipular informações de forma eficiente através de estruturas lineares (Pilhas e Filas) e do controle de fluxo do código.
 
@@ -160,3 +160,59 @@ Ambas são baseadas em listas para organizar informações, mas se diferenciam f
 * **Fila (Queue):**
     * **Comportamento:** Opera no modelo **FIFO** (*First In, First Out* - O primeiro elemento a entrar é o primeiro a sair). É o mesmo funcionamento de uma fila de banco ou supermercado.
     * **No Python:** Embora seja possível usar uma lista comum, geralmente utilizamos outras bibliotecas nativas (como `collections.deque`) para manipular filas de forma mais otimizada e eficiente computacionalmente.
+
+## 📝 Aula 6: Fluxos de Controle (Condicionais e Repetições)
+
+Nesta etapa, focamos nas estruturas que ditam o fluxo de execução de um programa em Python: como o código toma decisões e como ele repete ações (loops).
+
+### 🔀 Estruturas Condicionais (Tomada de Decisão)
+Permitem que o programa execute diferentes blocos de código dependendo de uma condição lógica (Verdadeiro ou Falso).
+
+* **`if` (Se):** Avalia a primeira condição. Se for verdadeira, executa o bloco.
+* **`elif` (Se não, se):** Permite encadear múltiplas condições adicionais caso as anteriores sejam falsas.
+* **`else` (Se não):** O bloco executado por padrão caso todas as condições anteriores (`if` e `elif`) sejam falsas.
+
+**Exemplo prático:**
+```python
+nota = 8.5
+
+if nota >= 7:
+    print("Aprovado! Acima da média.")
+elif nota >= 5:
+    print("Em recuperação.")
+else:
+    print("Reprovado! Não atingiu a média.")
+```
+
+### 🔁 Estruturas de Repetição (Loops)
+
+Servem para automatizar tarefas repetitivas, executando um mesmo bloco de código diversas vezes.
+
+#### 1. Loop for (Para):
+
+Conceito: Utilizado para iterar (percorrer) sobre uma sequência de dados, como listas, tuplas, strings ou dicionários.
+
+Uso: Executa uma ação específica para cada item dentro dessa sequência. É ideal quando sabemos a quantidade de vezes que o loop deve rodar ou o tamanho da coleção.
+frutas = ["maçã", "banana", "uva"]
+
+**Exemplo prático com lista: Iteração sobre a lista, passando por cada item ***
+```python
+for fruta in frutas:
+    print(f"Eu gosto de {fruta}")
+```
+
+#### 2. Loop while (Enquanto):
+
+Conceito: Repete a execução de um bloco de código continuamente enquanto uma condição específica for verdadeira (True).
+
+Uso: Muito útil para automatizar processos onde não sabemos exatamente quantas iterações serão necessárias, dependendo de um evento de parada.
+
+**Exemplo prático com loop while ***
+``` python
+contador = 0
+
+# Repete o bloco enquanto o contador for menor que 3
+while contador < 3:
+    print(f"O contador atual é: {contador}")
+    contador += 1 # Incrementa o contador para evitar um "loop infinito"
+```
