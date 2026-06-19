@@ -1,9 +1,11 @@
-#coleção de planetas
+#Estrutura 1: Laço repetição com FOR
+
+#Coleção de planetas
 #Laço repetição For para obter cada elemento da lista
 planetas=['Mercúrio','Vênus','Terra','Marte','Jupiter','Saturno','Urano','Netuno']
 
 for planeta in planetas: #variavel planeta recebe o valor de cada planeta na coleção de planetas
-    print('Planeta:', planeta)
+    print('Planeta:', planeta) #Aqui imprimo cada planeta
 
 #Função RANGE:
 #  Número 5 se transforme em uma lsita que varie de 0 até 5, porém o 5 é exclusivo, ele não é impresso 
@@ -13,6 +15,7 @@ for i in range(5):
 for i in range(10): #Numero inserido no range é quantidade de elementos 
     print ("i=",i)
 
+#Estrutura 2: Laço repetição com While
 
 #Laço While, condição que repete laço de código quando condição for verdadeira
 i=0

@@ -130,7 +130,7 @@ import meu_pacote.meu_modulo
 from meu_pacote.meu_modulo import minha_funcao
 ```
 
-## 📝 Aulas 5: Tipos, Estruturas de Dados e Fluxos de Controle (Parte 1)
+## 📝 Aulas 6: Tipos, Estruturas de Dados e Fluxos de Controle 
 
 Nestas aulas, exploramos os tipos de dados fundamentais do Python, além de como organizar e manipular informações de forma eficiente através de estruturas lineares (Pilhas e Filas) e do controle de fluxo do código.
 
@@ -161,7 +161,7 @@ Ambas são baseadas em listas para organizar informações, mas se diferenciam f
     * **Comportamento:** Opera no modelo **FIFO** (*First In, First Out* - O primeiro elemento a entrar é o primeiro a sair). É o mesmo funcionamento de uma fila de banco ou supermercado.
     * **No Python:** Embora seja possível usar uma lista comum, geralmente utilizamos outras bibliotecas nativas (como `collections.deque`) para manipular filas de forma mais otimizada e eficiente computacionalmente.
 
-## 📝 Aula 6: Fluxos de Controle (Condicionais e Repetições)
+## 📝 Aula 7: Fluxos de Controle (Condicionais e Repetições) 
 
 Nesta etapa, focamos nas estruturas que ditam o fluxo de execução de um programa em Python: como o código toma decisões e como ele repete ações (loops).
 
@@ -216,3 +216,98 @@ while contador < 3:
     print(f"O contador atual é: {contador}")
     contador += 1 # Incrementa o contador para evitar um "loop infinito"
 ```
+
+## 📝 Aula 8 e 9: Ampliando Conhecimentos de Estruturas de Dados e Fluxos de Controle
+
+Nesta aula, aprofundamos o entendimento sobre como o Python toma decisões complexas, com foco no encadeamento de múltiplas condições e na importância estrutural do código.
+
+### 📐 Indentação e Aninhamento (A Estrutura do Código)
+Ao contrário de muitas linguagens que usam chaves `{}` para delimitar blocos, o Python depende da **indentação** (o recuo ou espaçamento no início da linha).
+* **Aninhamento:** É o ato de colocar um comando dentro de outro comando "superior". 
+* **Importância:** A indentação é essencial e obrigatória para que o `if` seja funcional. É através desse recuo que o Python entende se um bloco de código faz parte de uma condição ou se está fora dela.
+
+### 🛤️ Encadeamento de Condições
+Podemos construir fluxos de controle detalhados que avaliam várias situações em sequência. O programa testará as opções de cima para baixo até encontrar uma que obedeça à condição:
+
+* **O papel do `else`:** Ele é o "último recurso". O bloco de código dentro do `else` será executado **apenas** depois de todas as condições anteriores terem sido testadas e falhado. Ou seja, se o `if` e todos os `elif` não forem atendidos, a ação do `else` entra em cena.
+
+**Exemplo Prático Corrigido:**
+```python
+acao = 5
+
+if acao == 1:
+    print("Ação 1 ativada.")
+    
+elif acao == 2:
+    print("Ação 2 ativada.")
+    
+elif acao > 2 and acao < 10:
+    # Múltiplas validações na mesma linha utilizando o operador lógico 'and'
+    print("Ação 3 ativada (valor está entre 3 e 9).")
+    
+else:
+    # Se nenhuma das condições acima for verdadeira, o else é executado
+    print("Ação 4 ativada: Nenhuma condição anterior foi atendida.")
+
+```
+
+### 🔁 Aprofundando em Laços de Repetição (Loops)
+
+**1. O Laço `for`**
+Utilizado para iterar (percorrer) cada elemento individual de uma coleção (como listas, tuplas ou strings). O laço extrai um item por vez da coleção e executa uma ação para ele.
+
+ **Sintaxe básica:**
+  ```python
+  for variavel_de_busca in colecao:
+      # Ação a ser executada para cada item
+ ```
+**2. Uso da função range()**
+
+A função range() retorna uma sequência de números. Ela é ideal para quando precisamos executar um loop um número específico de vezes ou percorrer os índices de uma lista.
+
+Comportamento: range(tamanho) gera números começando do 0 até o tamanho - 1. O último número nunca é incluso.
+
+  **Exemplo de estrutura:**
+
+```Python
+# Vai imprimir os números 0, 1, 2, 3 e 4
+for i in range(5):
+    print(i) 
+```
+
+**3. O Laço while:**
+
+Repete a execução de um bloco de código continuamente enquanto uma condição específica for avaliada como verdadeira (True).
+
+Cuidado com o Loop Infinito: Como o while só para quando a condição deixa de ser atendida, é essencial criar um critério de parada. Para isso, geralmente utilizamos uma variável de controle e a incrementamos a cada iteração (ex: i += 1).
+
+ **Exemplo de estrutura:**
+
+```Python
+i = 0
+while i < 5:
+    print(f"Iteração número: {i}")
+    i += 1 # Incrementa o valor de 'i' para evitar um loop infinito
+```
+
+**4.A Estrutura "Switch Case" em Python**
+
+Em linguagens como C ou Java, o switch-case é muito comum. No Python, durante muito tempo, essa estrutura não existia de forma nativa e precisava ser simulada utilizando encadeamentos de if-elif-else ou Dicionários.
+
+Simulação utilizando if-elif-else:
+
+```Python
+opcao = 2
+
+if opcao == 1:
+    print("Ação da Opção 1")
+elif opcao == 2:
+    print("Ação da Opção 2")
+elif opcao == 3:
+    print("Ação da Opção 3")
+else:
+    print("Opção inválida: Padrão (Default)")
+```
+
+Nota de Atualização: A partir da versão 3.10 do Python, foi introduzida a estrutura estrutural de correspondência de padrões chamada match-case, que funciona de maneira nativa e muito semelhante ao switch-case tradicional.
+

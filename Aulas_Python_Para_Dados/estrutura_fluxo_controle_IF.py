@@ -1,5 +1,7 @@
 #Estrutura IF:
 hora=11
+#de acordo com condição, imprimo resultado
+
 #humor='sono' 
 #humor='sedento'
 humor='calor'
