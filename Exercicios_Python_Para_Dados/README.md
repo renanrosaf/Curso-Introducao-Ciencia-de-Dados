@@ -19,3 +19,7 @@ Este repositório é dedicado à resolução, armazenamento e documentação dos
 ## Exercício 4:Fluxo de controle
 ![Image](https://github.com/user-attachments/assets/121ab684-3ef9-4fe7-b54c-2149256810ae)
 =======
+
+## Exercício 5: Laço de repetição
+![Image](https://github.com/user-attachments/assets/e134104f-0e92-43f8-94f3-96f314f2bd7e)
+=======
