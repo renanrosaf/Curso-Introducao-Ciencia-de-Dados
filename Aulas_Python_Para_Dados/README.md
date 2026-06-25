@@ -311,3 +311,92 @@ else:
 
 Nota de Atualização: A partir da versão 3.10 do Python, foi introduzida a estrutura estrutural de correspondência de padrões chamada match-case, que funciona de maneira nativa e muito semelhante ao switch-case tradicional.
 
+## 📝 Aula 10 e 11: Funções, Programação Funcional e Tratamento de Erros
+
+Nesta aula, aprendemos como criar blocos de código reutilizáveis (Funções), exploramos diferentes formas de pensar e estruturar um código (Paradigms) e introduzimos conceitos de Programação Funcional e tratamento de exceções.
+
+### 🛠️ Funções em Python
+Uma função é um pedaço de código encapsulado que executa uma tarefa específica. Ela permite que você chame a mesma lógica várias vezes, evitando repetição e dividindo o programa em partes menores e organizadas. Dentro de uma função, podemos colocar vários blocos de comando (como `if/else`, loops `for` e `while`).
+
+* **`def`:** Palavra-chave utilizada para definir (criar) a função.
+* **Parâmetros:** Variáveis que a função recebe para processar (`a` e `b` no exemplo).
+* **`return`:** Define a ação final da função e o valor que ela irá devolver (retornar) para o programa.
+
+**Exemplo Prático:**
+```python
+# Definindo uma função que soma dois números quaisquer
+def somar(a, b):
+    return a + b  # Ação da função: retorna a soma dos parâmetros
+
+# Chamando a função e guardando o resultado em uma variável
+resultado = somar(2, 3) 
+
+# Isso vai imprimir 5
+print(resultado)
+```
+### 🧠 Paradigmas de Programação
+
+Um paradigma de programação é uma abordagem específica ou estilo de programar. É um conjunto de princípios, regras e padrões para escrever código, onde cada paradigma oferece uma perspectiva diferente para resolver problemas.
+
+Imperativo: Foca em como o programa deve fazer algo. Baseia-se em instruções passo a passo que alteram o estado do programa.
+
+Procedural: Um subtipo do paradigma imperativo, onde o código é agrupado em procedimentos (ou rotinas/funções).
+
+Orientado a Objetos (POO): Foco na criação de "objetos" que representam entidades e conceitos do mundo real. Baseia-se na definição de Atributos (características/dados) e Métodos (ações/comportamentos).
+
+Declarativo: Foca no que deve ser alcançado, e não no passo a passo de como fazer. Pode ter um custo computacional mais alto dependendo da implementação. A Programação Funcional faz parte deste paradigma.
+
+### ⚙️ Programação Funcional (FP)
+A Programação Funcional é um paradigma que trata a computação como a avaliação de funções matemáticas.
+
+Evitando "Efeitos Colaterais" (Side Effects): Um efeito colateral ocorre quando uma função altera dados ou o estado do programa fora do seu próprio escopo. A FP busca evitar isso.
+
+Funções Puras: São funções que, para uma mesma entrada, sempre retornam o mesmo resultado, sem modificar o valor dos parâmetros originais ou depender de dados externos mutáveis.
+
+Funções de Alta Ordem (Higher-Order Functions): São funções que podem receber outras funções como parâmetros ou retornar funções como resultado.
+
+O Python possui funções nativas (built-ins) para facilitar operações, como print(), e clássicas funções puras de alta ordem herdadas do conceito funcional, como map(), filter() e funções de ordenação como sorted().
+
+
+### 🚨 Lidando com Erros e Exceções (Try / Except / Finally)
+
+É fundamental saber lidar com erros na programação. Tratar essas falhas adequadamente impede interrupções abruptas (quando o programa "quebra"), exibe mensagens mais amigáveis ao usuário e torna o código muito mais robusto, limpo e confiável.
+
+Existem dois tipos principais de erros que encontramos ao programar:
+
+* **Erros de Sintaxe (Syntax Errors):** São erros na escrita do código (como esquecer dois pontos `:` ou errar a indentação). O próprio interpretador do Python identifica e aponta o erro antes mesmo de o código rodar.
+* **Exceções (Exceptions):** Ocorrem durante a execução do programa. A sintaxe do código está totalmente correta, mas acontece um imprevisto (ex: o usuário digita uma letra onde era esperado um número, ocorre uma divisão por zero, ou o sistema tenta acessar uma página que está fora do ar). 
+
+Se uma exceção ocorre e não é tratada, o Python interrompe a execução imediatamente. Para evitar isso, utilizamos os blocos de tratamento.
+
+#### 🧱 A Estrutura de Tratamento
+* **`try` (Tentar):** Bloco onde colocamos o código principal que será testado. O programa tenta executá-lo normalmente.
+* **`except` (Exceto):** Se ocorrer uma exceção dentro do `try`, o Python pula para este bloco para "capturar" e tratar o erro. Podemos ter vários blocos `except` para tratar falhas diferentes de maneiras específicas.
+* **`finally` (Finalmente):** Bloco opcional que é executado **sempre**, independentemente de ter ocorrido uma exceção ou não. É muito utilizado para liberar recursos (como fechar um arquivo aberto ou encerrar a conexão com um banco de dados).
+
+**Exemplo Prático Completo:**
+```python
+try:
+    # Tenta executar este bloco de código
+    numero = int(input("Digite um número para dividir 10: "))
+    resultado = 10 / numero
+    print(f"O resultado é {resultado}")
+
+except ZeroDivisionError:
+    # Captura o erro específico de tentar dividir por zero
+    print("Erro: Não é possível dividir um número por zero!")
+
+except ValueError:
+    # Captura o erro do usuário ter digitado um texto ao invés de um número
+    print("Erro: Você deve digitar um número inteiro válido!")
+
+finally:
+    # Executa sempre, dando certo ou errado
+    print("Fim da operação de divisão.")
+
+```
+#### 🛠️ Exceções Personalizadas
+
+Além das exceções nativas do Python (como ValueError ou ZeroDivisionError), você pode criar as suas próprias exceções para lidar com regras de negócio específicas do seu projeto.
+
+Para isso, é necessário utilizar o paradigma de Programação Orientada a Objetos (POO), criando uma classe personalizada que herda as características da classe base Exception do Python.

@@ -15,11 +15,14 @@ Este repositório é dedicado à resolução, armazenamento e documentação dos
 ![Image](https://github.com/user-attachments/assets/e780927a-dc22-4769-a495-e39119382fa2)
 =======
 
-
 ## Exercício 4:Fluxo de controle
 ![Image](https://github.com/user-attachments/assets/121ab684-3ef9-4fe7-b54c-2149256810ae)
 =======
 
 ## Exercício 5: Laço de repetição
 ![Image](https://github.com/user-attachments/assets/e134104f-0e92-43f8-94f3-96f314f2bd7e)
+=======
+
+## Exercício 6: Tratamento de Erros
+![Image](https://github.com/user-attachments/assets/a5577b0f-5837-4ca4-90b2-f0b65b29057f)
 =======
