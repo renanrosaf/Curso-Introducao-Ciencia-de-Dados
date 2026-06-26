@@ -401,9 +401,7 @@ Além das exceções nativas do Python (como ValueError ou ZeroDivisionError), v
 
 Para isso, é necessário utilizar o paradigma de Programação Orientada a Objetos (POO), criando uma classe personalizada que herda as características da classe base Exception do Python.
 
-## 📝 Aula 12: Programação Orientada a Objetos
-
-## 📝 Aula 11: Programação Orientada a Objetos (POO)
+## 📝 Aula 12: Programação Orientada a Objetos (POO)
 
 A Programação Orientada a Objetos (POO) é um paradigma de programação que se baseia na criação e manipulação de **objetos**. O objetivo principal da POO é aproximar a programação do mundo real, modelando conceitos do nosso dia a dia para dentro do código.
 
