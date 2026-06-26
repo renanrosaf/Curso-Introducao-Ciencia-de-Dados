@@ -26,3 +26,6 @@ Este repositório é dedicado à resolução, armazenamento e documentação dos
 ## Exercício 6: Tratamento de Erros
 ![Image](https://github.com/user-attachments/assets/a5577b0f-5837-4ca4-90b2-f0b65b29057f)
 =======
+
+## Exercício 7: Programação Orientada a Objetos
+![Image](https://github.com/user-attachments/assets/3c02b774-73c6-4944-9c75-b943c7440377)

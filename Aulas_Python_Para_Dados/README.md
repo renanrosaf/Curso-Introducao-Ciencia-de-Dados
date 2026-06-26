@@ -400,3 +400,77 @@ finally:
 Além das exceções nativas do Python (como ValueError ou ZeroDivisionError), você pode criar as suas próprias exceções para lidar com regras de negócio específicas do seu projeto.
 
 Para isso, é necessário utilizar o paradigma de Programação Orientada a Objetos (POO), criando uma classe personalizada que herda as características da classe base Exception do Python.
+
+## 📝 Aula 12: Programação Orientada a Objetos
+
+## 📝 Aula 11: Programação Orientada a Objetos (POO)
+
+A Programação Orientada a Objetos (POO) é um paradigma de programação que se baseia na criação e manipulação de **objetos**. O objetivo principal da POO é aproximar a programação do mundo real, modelando conceitos do nosso dia a dia para dentro do código.
+
+
+### 🏗️ Conceitos Fundamentais: Classe e Objeto
+
+Para entender a POO, precisamos diferenciar duas coisas: o "molde" e a "criação final".
+
+**1. Classe (O Molde):**
+É a estrutura fundamental que define o comportamento e as propriedades de um objeto. A classe não é o dado em si, mas sim a "planta" ou a "receita" de algo que existe no mundo real. 
+* *Exemplo 1 (Carro):* A classe `Carro` define que todo carro deve ter características em comum (como cor, marca, chassi) e ações em comum (como acelerar, frear).
+* *Exemplo 2 (Videogame):* A classe `Personagem` define que todo personagem do jogo terá força, velocidade, pontos de vida, e ações como andar, pular e atacar.
+
+**2. Objeto (A Instância):**
+É a representação concreta da classe, ou seja, o conceito da vida real materializado na memória do computador. Quando criamos um objeto a partir de uma classe, dizemos que estamos criando uma **instância** dessa classe.
+* *Exemplo (Videogame):* Usando a classe `Personagem`, podemos criar dois objetos diferentes:
+    * O objeto **Cavaleiro**: Terá mais pontos de vida (porque usa armadura) e atacará com uma espada.
+    * O objeto **Mago**: Terá menos pontos de vida, mas uma força de ataque mágico muito maior.
+
+---
+
+### 🧬 Atributos, Métodos e o `self`
+
+Dentro de uma classe, as variáveis e funções ganham nomes especiais:
+* **Atributos:** São as características/propriedades do objeto (ex: cor, nome, força).
+* **Métodos:** São os comportamentos/ações que o objeto executa (ex: pular, atacar). São escritos como funções dentro da classe.
+
+**O Método Construtor (`__init__`) e o `self`:**
+* **Função Construtora (`__init__`):** É a primeira ação que o Python executa automaticamente ao instanciar (criar) um objeto. Ela serve para "construir" o objeto, definindo seus atributos iniciais.
+* **O parâmetro `self`:** Representa o próprio objeto que está sendo criado. Ele conecta os atributos e métodos àquela instância específica. É a forma de dizer ao Python: *"A força de ataque **deste** personagem (self) é X"*. O `self` representa o objeto como um todo.
+
+---
+
+### 💻 Exemplo Prático em Python
+
+Abaixo, transformamos o conceito do videogame em código:
+
+```python
+# 1. Criando a Classe (O Molde)
+class Personagem:
+    
+    # 2. Função Construtora: Define os atributos iniciais quando o objeto nasce
+    def __init__(self, nome, tipo, pontos_vida, forca):
+        self.nome = nome           # O atributo 'nome' deste objeto recebe o valor passado
+        self.tipo = tipo
+        self.pontos_vida = pontos_vida
+        self.forca = forca
+        
+    # 3. Métodos: Os comportamentos do objeto
+    def apresentar(self):
+        print(f"Eu sou {self.nome}, um {self.tipo} com {self.pontos_vida} de HP!")
+        
+    def atacar(self):
+        print(f"{self.nome} atacou causando {self.forca} de dano!\n")
+
+
+# 4. Instanciando os Objetos (Criando representações concretas)
+# Na programação funcional, chamaríamos uma função. Aqui, instanciamos uma classe de forma parecida.
+
+cavaleiro = Personagem("Arthur", "Cavaleiro", 150, 20)
+mago = Personagem("Merlin", "Mago", 80, 55)
+
+# 5. Utilizando os objetos
+cavaleiro.apresentar()
+cavaleiro.atacar()
+
+mago.apresentar()
+mago.atacar()
+
+```
