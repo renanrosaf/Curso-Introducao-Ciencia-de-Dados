@@ -401,7 +401,7 @@ Além das exceções nativas do Python (como ValueError ou ZeroDivisionError), v
 
 Para isso, é necessário utilizar o paradigma de Programação Orientada a Objetos (POO), criando uma classe personalizada que herda as características da classe base Exception do Python.
 
-## 📝 Aula 12: Programação Orientada a Objetos (POO)
+## 📝 Aula 12 e 13: Programação Orientada a Objetos (POO)
 
 A Programação Orientada a Objetos (POO) é um paradigma de programação que se baseia na criação e manipulação de **objetos**. O objetivo principal da POO é aproximar a programação do mundo real, modelando conceitos do nosso dia a dia para dentro do código.
 
@@ -470,5 +470,121 @@ cavaleiro.atacar()
 
 mago.apresentar()
 mago.atacar()
+
+```
+Para que a Programação Orientada a Objetos seja realmente eficiente, ela se apoia em alguns pilares fundamentais. Nesta aula, exploramos três deles: **Encapsulamento**, **Herança** e **Polimorfismo**.
+
+A POO é uma abordagem que modela problemas do mundo real em código Python. Utilizar esses pilares permite criar sistemas modulares, altamente reutilizáveis, seguros e muito mais fáceis de entender e dar manutenção.
+
+---
+
+### 🔒 1. Encapsulamento
+O encapsulamento é o conceito de proteger os atributos (dados) de uma classe, restringindo o acesso direto a eles de fora da classe. 
+
+* **Por que usar?** Facilita a manutenção, previne erros acidentais, evita o uso inadequado dos dados e torna o sistema mais seguro. A ideia é que você aprenda a operar o objeto apenas através de regras determinadas pelos métodos, sem mexer diretamente nas engrenagens internas.
+* **Em Python:** O Python não bloqueia o acesso de forma estrita como outras linguagens (como Java), mas utiliza uma convenção visual:
+  * `_atributo` (Um sublinhado): Indica que o atributo é **protegido** (deve ser acessado apenas pela própria classe ou subclasses).
+  * `__atributo` (Dois sublinhados): Indica que o atributo é **privado** (altamente restrito à própria classe).
+
+**Métodos de Acesso (Getters e Setters):**
+Como os atributos estão protegidos/privados, criamos métodos específicos na classe para recuperar (`get`) ou alterar (`set`) esses valores de forma segura.
+
+**Exemplo Prático (Conta Bancária):**
+```python
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial):
+        self.titular = titular
+        # O duplo sublinhado (__) torna o saldo privado. Ninguém de fora pode alterá-lo diretamente.
+        self.__saldo = saldo_inicial 
+
+    # Método GET: Recupera o valor encapsulado de forma segura
+    def get_saldo(self):
+        return f"O saldo atual de {self.titular} é R$ {self.__saldo:.2f}"
+
+    # Método para alterar o saldo com regras (ao invés de acessar o atributo direto)
+    def depositar(self, valor):
+        if valor > 0:
+            self.__saldo += valor
+            print(f"Depósito de R$ {valor} realizado com sucesso!")
+        else:
+            print("Erro: O valor do depósito deve ser positivo.")
+
+# Testando o encapsulamento
+conta = ContaBancaria("Renan", 1000)
+
+# Correto: Acessando o saldo através do método Get
+print(conta.get_saldo()) 
+
+# Se tentássemos acessar print(conta.__saldo) diretamente, o Python geraria um erro!
+
+```
+
+
+### 🔒 1. Encapsulamento
+A herança permite criar uma nova classe (Classe Filha) que "herda" as características (atributos) e comportamentos (métodos) de uma classe existente (Classe Pai / Classe Mãe).
+
+Conceito: Se dois objetos compartilham muitas coisas em comum, não precisamos reescrever o código do zero. Criamos uma classe base geral e as classes filhas herdam e especificam os detalhes.
+
+O método super(): É utilizado dentro da classe filha para chamar o método construtor (__init__) ou outros métodos da classe mãe, garantindo que as características herdadas sejam inicializadas corretamente.
+
+**Exemplo Prático:**
+
+``` Python
+
+# Classe Mãe (Superclasse)
+class Veiculo:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def exibir_info(self):
+        print(f"Veículo: {self.marca} {self.modelo}")
+
+# Classe Filha (Subclasse) - Herda de Veiculo
+class Carro(Veiculo):
+    def __init__(self, marca, modelo, portas):
+        # Chama o construtor da classe Mãe para inicializar marca e modelo
+        super().__init__(marca, modelo)
+        # Adiciona um atributo específico da classe filha
+        self.portas = portas 
+
+meu_carro = Carro("Toyota", "Corolla", 4)
+meu_carro.exibir_info()  # Método herdado da classe mãe funcionando na classe filha!
+
+```
+### 🎭 3. Polimorfismo
+A palavra polimorfismo vem do grego (poli = muitas, morphos = formas). Na POO, significa que um mesmo método (uma mesma ação) pode ter comportamentos completamente diferentes dependendo da classe que o está chamando.
+
+Conceito: O polimorfismo permite que a Classe Filha tenha um comportamento diferente da Classe Mãe para a mesma ação.
+
+Sobrescrita de Métodos (Overriding): É a técnica onde recriamos um método na classe filha com o mesmo nome do método da classe mãe, para que ele faça algo mais específico.
+
+**Exemplo Prático:**
+
+```Python
+
+class Animal:
+    def emitir_som(self):
+        print("O animal faz um som genérico.")
+
+class Cachorro(Animal):
+    # Sobrescrevendo o método da classe mãe
+    def emitir_som(self):
+        print("O cachorro faz: Au Au!")
+
+class Gato(Animal):
+    # Sobrescrevendo o método da classe mãe
+    def emitir_som(self):
+        print("O gato faz: Miau!")
+
+# Testando o Polimorfismo
+# A ação é a mesma (emitir_som), mas o resultado muda dependendo do objeto!
+bicho = Animal()
+rex = Cachorro()
+mingau = Gato()
+
+bicho.emitir_som()   # Saída: O animal faz um som genérico.
+rex.emitir_som()     # Saída: O cachorro faz: Au Au!
+mingau.emitir_som()  # Saída: O gato faz: Miau!
 
 ```
