@@ -221,3 +221,138 @@ print(f"Menor valor de venda: {np.min(vendas)}") # Saída: 50
 print(f"Índice da maior venda: {np.argmax(vendas)}") # Saída: 3
 print(f"Índice da menor venda: {np.argmin(vendas)}") # Saída: 2
 ```
+## 📝 Aula 3: Visualização Eficaz de Dados (Data Viz)
+
+A **Visualização de Dados (Data Viz)** é a representação gráfica de informações. O objetivo principal é transformar grandes e complexos conjuntos de dados em gráficos, tabelas e diagramas que possam ser processados visualmente e compreendidos com facilidade pelo cérebro humano.
+
+O grande lema da visualização de dados é **transformar dados brutos em decisões acionáveis.**
+
+### 🎯 A Importância da Visualização de Dados
+* **Compreensão de Dados:** Permite entender rapidamente a estrutura e a distribuição da base de dados.
+* **Identificação de Padrões e Correlações:** Facilita a descoberta de tendências (ex: como uma variável afeta a outra ao longo do tempo).
+* **Detecção de Anomalias (Outliers):** Valores que fogem drasticamente do padrão tornam-se imediatamente visíveis em um gráfico.
+* **Comunicação Eficaz:** Traduz análises estatísticas complexas para um formato visual que gestores e equipes não-técnicas possam interpretar.
+* **Suporte à Tomada de Decisão:** Fornece a base visual necessária para escolhas estratégicas seguras.
+
+---
+
+### 📚 Principais Bibliotecas em Python
+O ecossistema Python possui excelentes ferramentas para Data Viz. As três principais são:
+1. **Matplotlib:** A biblioteca pioneira e mais fundamental (foco desta aula).
+2. **Seaborn:** Construída sobre o Matplotlib, focada em gráficos estatísticos mais bonitos e fáceis de gerar.
+3. **Plotly:** Focada em gráficos interativos (dashboards web).
+
+---
+
+### 📊 Matplotlib: A Base da Visualização
+O **Matplotlib** é uma biblioteca de plotagem 2D poderosa, originalmente projetada com uma sintaxe muito semelhante ao software MATLAB. Ela possui uma API orientada a objetos que permite um controle minucioso sobre cada elemento do gráfico.
+
+*A documentação oficial oferece guias excelentes como "Plot Types" e "Examples", cobrindo visualizações como `plot` (linhas), `scatter` (dispersão), `bar` (barras), `stem`, `step` e `fill_between`.*
+
+**Instalação e Importação Padrão:**
+```bash
+pip install matplotlib
+Python
+import matplotlib.pyplot as plt
+```
+
+### 1. Gráfico de Linhas (Line Plot)
+Ideal para mostrar a evolução de uma variável contínua ao longo do tempo (tendências).
+
+``` Python
+import matplotlib.pyplot as plt
+
+# Simulando dados de um equipamento
+tempo = [1, 2, 3, 4, 5]
+tensao_volts = [220, 222, 218, 225, 221]
+
+plt.plot(tempo, tensao_volts, color='red', marker='o', label='Tensão da Rede')
+plt.title("Monitoramento de Tensão ao Longo do Tempo")
+plt.xlabel("Tempo (Horas)")
+plt.ylabel("Tensão (V)")
+plt.legend()
+plt.show() # Comando obrigatório para exibir o gráfico na tela
+```
+
+### 2. Gráfico de Dispersão (Scatter Plot)
+Utiliza pontos para representar valores de duas variáveis numéricas diferentes. É a melhor escolha para descobrir se existe correlação entre duas métricas.
+
+``` Python
+import matplotlib.pyplot as plt
+
+# Avaliando se a temperatura afeta a corrente de um motor
+temperatura = [30, 35, 40, 45, 50, 55, 60]
+corrente = [10.5, 10.8, 11.2, 12.0, 13.5, 15.0, 17.2]
+
+plt.scatter(temperatura, corrente, color='blue', label='Leituras do Motor')
+plt.title("Relação: Temperatura vs Corrente")
+plt.xlabel("Temperatura (°C)")
+plt.ylabel("Corrente (A)")
+plt.legend()
+plt.show()
+```
+
+### 🌊 Seaborn: Visualização Estatística de Alto Nível
+O Seaborn trabalha em conjunto com o Pandas e o Matplotlib. Ele requer menos linhas de código para gerar gráficos complexos e já vem com paletas de cores e estilos pré-configurados muito elegantes.
+
+Instalação e Importação:
+
+```Bash
+pip install seaborn
+Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+### 1. Gráfico de Barras (Bar Plot)
+Usado para comparar quantidades entre diferentes categorias.
+
+```Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+# Comparando acionamentos de diferentes sensores PNP na linha de montagem
+dados_sensores = {'Sensor': ['Sensor A', 'Sensor B', 'Sensor C'], 'Acionamentos': [450, 320, 500]}
+
+sns.barplot(x='Sensor', y='Acionamentos', data=dados_sensores, palette='viridis')
+plt.title("Total de Acionamentos por Sensor")
+plt.show()
+``` 
+### 2. Histograma (Hist Plot)
+Representa a distribuição de frequência de uma variável contínua. Ele agrupa os dados em "caixas" (bins) para mostrar onde os valores estão mais concentrados.
+
+```  Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Distribuição de peso de chapas de aço bifásicas (em kg)
+pesos_chapas = [15.2, 15.5, 15.1, 14.8, 15.3, 15.2, 16.0, 15.4, 15.2, 14.9]
+
+sns.histplot(pesos_chapas, bins=5, kde=True, color='purple')
+plt.title("Distribuição de Peso das Chapas Automotivas")
+plt.xlabel("Peso (kg)")
+plt.show()
+``` 
+
+### 3. Mapa de Calor (Heatmap)
+Representa dados em um formato de matriz, utilizando um gradiente de cores para indicar a intensidade ou magnitude dos valores. É amplamente utilizado para visualizar matrizes de correlação (para ver quais variáveis de uma base de dados influenciam mais umas às outras).
+
+```  Python
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Simulando uma matriz de correlação entre variáveis industriais
+dados = {
+    'Temperatura': [1.0, 0.8, -0.2],
+    'Pressão': [0.8, 1.0, -0.5],
+    'Umidade': [-0.2, -0.5, 1.0]
+}
+df_correlacao = pd.DataFrame(dados, columns=['Temperatura', 'Pressão', 'Umidade'], index=['Temperatura', 'Pressão', 'Umidade'])
+
+# Gerando o heatmap
+sns.heatmap(df_correlacao, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title("Mapa de Calor: Correlação de Variáveis")
+plt.show()
+``` 

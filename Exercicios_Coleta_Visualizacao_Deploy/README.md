@@ -10,3 +10,7 @@ Este repositório é dedicado à resolução, armazenamento e documentação dos
 ## Exercício 2: Manipulação e Criação de Array
 ![Image](https://github.com/user-attachments/assets/81a911c8-2e11-4fea-a7e5-97568225decc)
 =======
+
+## Exercício 3: Visualização de Dados com Matplotlib
+![Image](https://github.com/user-attachments/assets/44a6d22f-1e4e-4da2-8c3e-bd0e4c413937)
+=======

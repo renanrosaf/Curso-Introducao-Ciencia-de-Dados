@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+#array com nomes e salarios dos funcionários
+nomes=np.array(['João','Maria','Pedro','Paula','Ana'])
+salario=np.array([2000,2500,3575.89,8000,5575])
+
+#criando o gráfico
+plt.bar(nomes,salario,color='orange')
+
+#adicionando rótulos
+plt.xlabel('Nome do Funcionário')
+plt.ylabel('Salario do Funcionário: R$')
+plt.title('Dados dos funcionários')
+
+#mostrando o gráfico
+plt.show()
